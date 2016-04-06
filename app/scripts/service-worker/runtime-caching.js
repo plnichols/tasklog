@@ -17,9 +17,9 @@
  *
  */
 /* eslint-env worker */
-// global.toolbox is defined in a different script, sw-toolbox.js, which is part of the
+// global.toolbox is defined in a different script, service-worker-toolbox.js, which is part of the
 // https://github.com/GoogleChrome/sw-toolbox project.
-// That sw-toolbox.js script must be executed first, so it needs to be listed before this in the
+// That service-worker-toolbox.js script must be executed first, so it needs to be listed before this in the
 // importScripts() call that the parent service worker makes.
 (function(global) {
   'use strict';

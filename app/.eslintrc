@@ -1,0 +1,20 @@
+{
+  "env": {
+    "browser": 1
+  },
+
+  "globals": {
+    "Backbone": 1,
+    "Marionette": 1,
+    "$": 1,
+    "_": 1
+  },
+
+  "rules": {
+    "space-before-function-paren": 0,
+    "no-multiple-empty-lines": 0,
+    "no-trailing-spaces": 0,
+    "padded-blocks": 0,
+    "new-cap": 0
+  }
+}
