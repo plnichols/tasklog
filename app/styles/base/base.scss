@@ -1,0 +1,79 @@
+/**
+ * Base CSS Styles
+ */
+
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #666;
+  background-color: lightgrey;
+}
+
+.header {
+  background-color: dodgerblue;
+}
+
+.header__inner {
+  padding: 15px 0;
+  text-align: center;
+}
+
+.header__link {
+  display: inline-block;
+  color: lightskyblue;
+  text-decoration: none;
+}
+
+
+.main {
+  background-color: white;
+  @extend .clearfix;
+}
+
+.main__inner {
+  padding: 15px;
+}
+
+
+.footer {
+  background-color: dimgrey;
+}
+
+.footer__inner {
+  padding: 15px 0;
+}
+
+.footer__list {
+  margin: 0;
+  text-align: center;
+}
+
+.footer__item {
+  margin: 0;
+  font-size: 12px;
+  list-style-type: none;
+  display: inline-block;
+}
+
+.footer__link {
+  color: darkgrey;
+  text-decoration: none;
+}
+
+
+
+.task__list {
+  margin: 0;
+  padding: 10px;
+  list-style-type: none;
+}
+
+.task__item {
+  margin: 5px 0;
+  padding: 2px 0;
+}
+
+.task__date {
+  font-size: 12px;
+}

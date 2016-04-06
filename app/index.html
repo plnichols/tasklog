@@ -26,16 +26,10 @@
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <meta name="msapplication-TileColor" content="#2196f3">
 
     <!-- Color the status bar on mobile devices -->
     <meta name="theme-color" content="#2196f3">
-
-    <!-- Material Design Lite page styles -->
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue-cyan.min.css">
-
-    <!-- Material Design icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
@@ -43,48 +37,54 @@
 
 
 
-  <body class="mdl-color--grey-100 mdl-color-text--grey-700">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <body>
+    <div id="app"></div>
 
-      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-          <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
-          <!--<a href="#faq" class="mdl-layout__tab">FAQ</a>-->
-          <!--<a href="#more" class="mdl-layout__tab">More</a>-->
+
+
+    <!-- Templates -->
+    <script type="text/x-template" id="root-template">
+      <header class="header">
+        <div class="header__inner container">
+          <a href="#tasks" class="header__link">Tasks</a>
         </div>
       </header>
 
-      <main class="mdl-layout__content">
-        <div class="mdl-layout__tab-panel is-active" id="overview">
-
-          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-color--white">
-            <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--1-col-tablet"></div>
-            <div class="mdl-card mdl-cell mdl-cell--6-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
-              <div class="mdl-card__supporting-text">
-                <h4>Tasklog</h4>
-                A daily log of all tasks achieved, grouped per project.
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--1-col-tablet"></div>
-          </section>
-
-        </div>
-
-        <footer class="mdl-mega-footer">
-          <div class="mdl-mega-footer--bottom-section">
-            <ul class="mdl-mega-footer--link-list">
-              <li><a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a></li>
-              <li><a href="#">Help</a></li>
-              <li><a href="#">Privacy and Terms</a></li>
-            </ul>
-          </div>
-        </footer>
+      <main class="main">
+        <section class="main__inner container">
+          <div id="title-region"></div>
+          <div id="main-region"></div>
+        </section>
       </main>
-    </div>
 
-    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+      <footer class="footer">
+        <div class="footer__inner container">
+          <ul class="footer__list">
+            <li class="footer__item"><a href="#" class="footer__link">Help</a></li>
+          </ul>
+        </div>
+      </footer>
+    </script>
+
+    <script type="text/x-template" id="task-item-template">
+      <a href="#"><%= title %></a> <span class="task__date">(<%= date %>)</span>
+    </script>
+
+    <script type="text/x-template" id="title-template">
+      <h4>Tasklog</h4>
+      <p>A daily log of all tasks achieved, grouped per project.</p>
+    </script>
+
+
+
+
     <!-- build:js(app/) ../../scripts/main.min.js -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/vendor/jquery.min.js"></script>
+    <script src="scripts/vendor/underscore-min.js"></script>
+    <script src="scripts/vendor/backbone-min.js"></script>
+    <script src="scripts/vendor/backbone.marionette.min.js"></script>
+    <script src="scripts/application/app.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

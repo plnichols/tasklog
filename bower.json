@@ -1,0 +1,24 @@
+{
+  "name": "tasklog",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Pierre Luc Nichols <pierrelucnichols@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/plnichols/tasklog",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "backbone": "^1.3.3",
+    "backbone.marionette": "marionette#^2.4.5"
+  }
+}

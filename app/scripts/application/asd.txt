@@ -1,0 +1,115 @@
+var app = app || {};
+
+(function() {
+  'use strict';
+
+
+  // create application
+  app = new Marionette.Application();
+
+  app.on('start', function () {
+    console.log('app start');
+    Backbone.history.start();
+  });
+
+
+
+  // get dummy data
+  app.data = [
+    {
+      title: 'First task',
+      date: '20/11/2015'
+    },
+    {
+      title: '2nd task',
+      date: '8/12/2015'
+    },
+    {
+      title: '3rd task',
+      date: '2/01/2015'
+    }
+  ];
+
+
+
+  // models
+  app.TaskModel = Backbone.Model.extend({
+    initialize: function (data) {
+      console.log('Task Model initialized', data);
+    }
+  });
+
+
+
+  // collections
+  app.TaskCollection = new Backbone.Collection(app.data);
+
+
+
+  // task item view
+  app.TaskItemView = Marionette.ItemView.extend({
+    tagName: 'li',
+    className: 'task__list',
+    template: _.template('<a href=#><%= title %></a>'),
+    initialize: function () {
+      console.log('Item View initialized');
+    },
+    onRender: function () {
+      console.log('Item render', this.$el, this.model.toJSON());
+    }
+  });
+
+
+  // task list view
+  app.TaskListView = Marionette.CollectionView.extend({
+    tagName: 'ul',
+    className: 'task__list',
+    childView: app.TaskItemView,
+    initialize: function () {
+      console.log('List View initialized');
+    },
+    onRender: function () {
+      console.log('List render', this.$el);
+    }
+  });
+  app.taskListView = new app.TaskListView({
+    collection: app.TaskCollection
+  });
+
+
+  // title view
+  app.TitleView = Marionette.ItemView.extend({
+    template: '#title-template',
+    initialize: function () {
+      console.log('Title View initialized');
+    }
+  });
+  app.titleView = new app.TitleView();
+
+
+  // root view
+  app.RootView = Marionette.LayoutView.extend({
+    el: '#app',
+    template: '#root-template',
+    regions: {
+      title: '#title-region',
+      main: '#main-region'
+    },
+    initialize: function () {
+      console.log('Root View initialized');
+    }
+  });
+
+
+
+  app.rootView = new app.RootView();
+  app.rootView.render();
+  app.rootView.showChildView('title', app.titleView);
+  app.rootView.showChildView('main', app.taskListView);
+
+
+
+  // start the app
+  app.start();
+
+})();
